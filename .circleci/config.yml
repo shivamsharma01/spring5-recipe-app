@@ -11,10 +11,13 @@ jobs:
       - checkout
 
       # Build the Spring Boot application
-      - run: ./gradlew build
+      - run: mvn compile
 
-      # Run tests
-      - run: ./gradlew test
+      # Run unit tests
+      - run: mvn test
+
+      # Run integration tests
+      - run: mvn verify
 
   deploy:
     docker:
